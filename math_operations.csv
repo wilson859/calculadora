@@ -1,48 +1,22 @@
 import pandas as pd
+import random
 
-def realizar_operacion(row):
-    """Realiza la operación matemática especificada en la fila.
+# Función para generar fechas y horas aleatorias
+def generar_fecha_hora():
+  # ... (Igual que en el ejemplo anterior)
 
-    Args:
-        row: Una serie de pandas que representa una fila del DataFrame.
+# Generar datos aleatorios para 1000 filas
+data = {'fecha_hora': [generar_fecha_hora() for _ in range(1000)],
+        'operacion': ['suma', 'resta', 'multiplicacion', 'division'] * 250,
+        'operando1': [random.randint(1, 100) for _ in range(1000)],
+        'operando2': [random.randint(1, 100) for _ in range(1000)],
+        'resultado': [random.randint(1, 1000) for _ in range(1000)],
+        'usuario': ['usuario1', 'usuario2', 'usuario3'] * 333}
 
-    Returns:
-        El resultado de la operación o un mensaje de error si la operación no es válida.
-    """
+# Crear un DataFrame de pandas
+df = pd.DataFrame(data)
 
-    operacion = row['operation']
-    operando1 = row['operand_1']
-    operando2 = row['operand_2']
+# Guardar como CSV
+df.to_csv('historial_calculos.csv', index=False)
 
-    try:
-        if operacion == 'SUM':
-            return operando1 + operando2
-        elif operacion == 'RESTA':
-            return operando1 - operando2
-        elif operacion == 'MULTIPLICACION':
-            return operando1 * operando2
-        elif operacion == 'DIVISION':
-            if operando2 == 0:
-                return "División por cero"
-            else:
-                return operando1 / operando2
-        elif operacion == 'POTENCIA':
-            return operando1 ** operando2
-        else:
-            return "Operación no válida"
-    except TypeError:
-        return "Error de tipo de dato"
-
-# Cargar el archivo CSV
-df = pd.read_csv("operaciones.csv")
-
-# Aplicar la función a cada fila y crear una nueva columna
-df['resultado'] = df.apply(realizar_operacion, axis=1)
-
-# Crear una columna para indicar si la operación fue exitosa
-df['exito'] = df['resultado'].apply(lambda x: 'Sí' if isinstance(x, (int, float)) else 'No')
-
-# Guardar los cambios en un nuevo archivo CSV
-df.to_csv("operaciones_modificado.csv", index=False)
-
-print("Archivo CSV modificado generado correctamente.")
+print("Archivo CSV generado correctamente.")
