@@ -1,22 +1,87 @@
-import pandas as pd
-import random
-
-# Función para generar fechas y horas aleatorias
-def generar_fecha_hora():
-  # ... (Igual que en el ejemplo anterior)
-
-# Generar datos aleatorios para 1000 filas
-data = {'fecha_hora': [generar_fecha_hora() for _ in range(1000)],
-        'operacion': ['suma', 'resta', 'multiplicacion', 'division'] * 250,
-        'operando1': [random.randint(1, 100) for _ in range(1000)],
-        'operando2': [random.randint(1, 100) for _ in range(1000)],
-        'resultado': [random.randint(1, 1000) for _ in range(1000)],
-        'usuario': ['usuario1', 'usuario2', 'usuario3'] * 333}
-
-# Crear un DataFrame de pandas
-df = pd.DataFrame(data)
-
-# Guardar como CSV
-df.to_csv('historial_calculos.csv', index=False)
-
-print("Archivo CSV generado correctamente.")
+operand_1,operand_2,operation,correct_result
+5,3,SUMA,8
+10,2,RESTA,8
+4,5,MULTIPLICACION,20
+10,2,DIVISION,5
+2,3,POTENCIA,8
+8,0,DIVISION,División por cero
+7,2,SUMA,9
+6,3,RESTA,3
+9,3,MULTIPLICACION,27
+3,3,POTENCIA,27
+15,5,SUMA,20
+8,2,RESTA,6
+3,5,MULTIPLICACION,15
+6,2,DIVISION,3
+2,10,POTENCIA,1024
+9,0,DIVISION,División por cero
+12,4,SUMA,16
+6,4,RESTA,2
+5,6,MULTIPLICACION,30
+7,2,DIVISION,3.5
+3,2,POTENCIA,9
+11,5,SUMA,16
+10,1,RESTA,9
+8,4,MULTIPLICACION,32
+9,3,DIVISION,3
+2,5,POTENCIA,32
+4,4,SUMA,8
+6,7,RESTA,-1
+5,2,MULTIPLICACION,10
+8,2,DIVISION,4
+3,3,POTENCIA,27
+10,10,SUMA,20
+7,1,RESTA,6
+6,6,MULTIPLICACION,36
+12,3,DIVISION,4
+2,4,POTENCIA,16
+10,7,SUMA,17
+9,1,RESTA,8
+15,3,MULTIPLICACION,45
+8,4,DIVISION,2
+2,5,POTENCIA,32
+7,3,SUMA,10
+4,6,RESTA,-2
+9,8,MULTIPLICACION,72
+5,10,DIVISION,0.5
+2,7,POTENCIA,128
+6,2,SUMA,8
+8,3,RESTA,5
+7,5,MULTIPLICACION,35
+10,5,DIVISION,2
+3,2,POTENCIA,9
+11,4,SUMA,15
+6,3,RESTA,3
+12,5,MULTIPLICACION,60
+9,3,DIVISION,3
+2,8,POTENCIA,256
+8,4,SUMA,12
+5,3,RESTA,2
+10,2,MULTIPLICACION,20
+7,1,DIVISION,7
+3,2,POTENCIA,9
+6,5,SUMA,11
+9,4,RESTA,5
+6,3,MULTIPLICACION,18
+7,2,DIVISION,3.5
+4,2,POTENCIA,16
+5,10,SUMA,15
+8,6,RESTA,2
+7,3,MULTIPLICACION,21
+9,2,DIVISION,4.5
+2,6,POTENCIA,64
+3,5,SUMA,8
+7,4,RESTA,3
+8,3,MULTIPLICACION,24
+9,6,DIVISION,1.5
+2,10,POTENCIA,1024
+10,5,SUMA,15
+5,4,RESTA,1
+3,6,MULTIPLICACION,18
+9,5,DIVISION,1.8
+2,9,POTENCIA,512
+7,2,SUMA,9
+6,4,RESTA,2
+8,2,MULTIPLICACION,16
+9,3,DIVISION,3
+2,4,POTENCIA,16
